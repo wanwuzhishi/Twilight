@@ -17,7 +17,7 @@ import { getTranslateLanguageFromConfig, detectBrowserLanguage } from "./utils/l
 
 
 // 自动检测浏览器语言（服务端渲染时默认为 'en'）
-const SITE_LANG = detectBrowserLanguage("en");
+const SITE_LANG = detectBrowserLanguage("zh");
 // 如果需要强制使用特定语言，可以取消注释下面一行并设置语言代码
 // const SITE_LANG = "zh"; // 强制使用的语言代码，'zh', 'en', 'ja' 等
 
@@ -26,9 +26,9 @@ const SITE_TIMEZONE = 8; // from -12 to 12 default in UTC+8
 
 
 export const siteConfig: SiteConfig = {
-	siteURL: "https://twilight.spr-aachen.com/", // 请替换为你的站点 URL 并以斜杠结尾
-	title: "Twilight",
-	subtitle: "Blog Template",
+	siteURL: "https://fx.126330.xyz/", // 请替换为你的站点 URL 并以斜杠结尾
+	title: "万物之时资源站",
+	subtitle: "资源分享",
 
 	lang: SITE_LANG, // 自动检测的浏览器语言
 	translate: {
