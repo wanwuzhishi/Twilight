@@ -35,7 +35,7 @@ export const siteConfig: SiteConfig = {
 		enable: true, // 启用翻译功能
 		service: "client.edge", // 使用 Edge 浏览器翻译服务
 		defaultLanguage: getTranslateLanguageFromConfig(SITE_LANG), // 根据检测到的语言自动设置默认翻译语言
-		showSelectTag: false, // 不显示默认语言选择下拉菜单，使用自定义按钮
+		showSelectTag: true, // 不显示默认语言选择下拉菜单，使用自定义按钮
 		autoDiscriminate: true, // 自动检测用户语言
 		ignoreClasses: ["ignore", "banner-title", "banner-subtitle"], // 翻译时忽略的 CSS 类名
 		ignoreTags: ["script", "style", "code", "pre"], // 翻译时忽略的 HTML 标签
@@ -56,7 +56,7 @@ export const siteConfig: SiteConfig = {
 		// 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
 		src: {
 			desktop: [
-				"/assets/desktop-banner/desktopBanner_1.webp",
+				"https://wwzssvjitu.pages.dev/random?type=img",
 			], // 桌面壁纸图片
 			mobile: [
 				"/assets/mobile-banner/mobileBanner_1.webp",
@@ -84,9 +84,9 @@ export const siteConfig: SiteConfig = {
 		banner: {
 			homeText: {
 				enable: true, // 在主页显示自定义文本
-				title: "Twilight", // 主页横幅主标题
+				title: "万物之时资源站", // 主页横幅主标题
 				subtitle: [
-					"Illuminate Our Paths",
+					"欢迎来到我的站点！",
 				],
 				typewriter: {
 					enable: true, // 启用副标题打字机效果
@@ -174,20 +174,20 @@ export const navBarConfig: NavBarConfig = {
 			children: [
 				{
 					name: "GitHub",
-					url: "https://github.com/Example",
+					url: "https://github.com/wanwuzhishi",
 					external: true,
 					icon: "fa6-brands:github",
 				},
 				{
 					name: "Bilibili",
-					url: "https://space.bilibili.com/Example",
+					url: "https://space.bilibili.com/441476314",
 					external: true,
 					icon: "fa6-brands:bilibili",
 				},
 			],
 		},
 		{
-			name: "My",
+			name: "我的",
 			url: "/content/",
 			icon: "material-symbols:person",
 			children: [
@@ -201,33 +201,33 @@ export const navBarConfig: NavBarConfig = {
 			],
 		},
 		{
-			name: "About",
+			name: "关于",
 			url: "/content/",
 			icon: "material-symbols:info",
 			children: [LinkPreset.About, LinkPreset.Friends],
 		},
-		{
-			name: "Others",
-			url: "#",
-			icon: "material-symbols:more-horiz",
-			children: [
-				{
-					name: "Projects",
-					url: "/projects/",
-					icon: "material-symbols:work",
-				},
-				{
-					name: "Skills",
-					url: "/skills/",
-					icon: "material-symbols:psychology",
-				},
-				{
-					name: "Timeline",
-					url: "/timeline/",
-					icon: "material-symbols:timeline",
-				},
-			],
-		},
+		// {
+		// 	name: "Others",
+		// 	url: "#",
+		// 	icon: "material-symbols:more-horiz",
+		// 	children: [
+		// 		{
+		// 			name: "Projects",
+		// 			url: "/projects/",
+		// 			icon: "material-symbols:work",
+		// 		},
+		// 		{
+		// 			name: "Skills",
+		// 			url: "/skills/",
+		// 			icon: "material-symbols:psychology",
+		// 		},
+		// 		{
+		// 			name: "Timeline",
+		// 			url: "/timeline/",
+		// 			icon: "material-symbols:timeline",
+		// 		},
+		// 	],
+		// },
 	],
 };
 
@@ -240,7 +240,17 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com/Spr-Aachen/Twilight",
+			url: "https://github.com/wanwuzhishi",
+		},
+		{
+			name: "Bilibili",
+			icon: "fa6-brands:bilibili",
+			url: "https://space.bilibili.com/441476314",
+		},
+		{
+			name: "邮箱",
+			icon: "material-symbols:mail",
+			url: "mailto:wanwuzhishi@foxmail.com",
 		},
 	],
 };
@@ -260,20 +270,20 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 
 
 export const commentConfig: CommentConfig = {
-	enable: false, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
+	enable: true, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
 	twikoo: {
-		envId: "https://twikoo.vercel.app",
-		lang: "en", // 设置 Twikoo 评论系统语言为英文
+		envId: "https://shiny-bunny-17da57.netlify.app/.netlify/functions/twikoo",
+		lang: "zh", // 设置 Twikoo 评论系统语言为中文
 	},
 };
 
 
 export const announcementConfig: AnnouncementConfig = {
-	title: "Announcement", // 公告标题
-	content: "Welcome to my blog!", // 公告内容
+	title: "公告", // 公告标题
+	content: "欢迎来到我的资源分享网站。", // 公告内容
 	closable: true, // 允许用户关闭公告
 	link: {
-		enable: true, // 启用链接
+		enable: false, // 启用链接
 		text: "Learn More", // 链接文本
 		url: "/about/", // 链接 URL
 		external: false, // 内部链接
@@ -287,7 +297,7 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 
 
 export const footerConfig: FooterConfig = {
-	enable: false, // 是否启用Footer HTML注入功能
+	enable: true, // 是否启用Footer HTML注入功能
 };
 // 直接编辑 FooterConfig.html 文件来添加备案号等自定义内容
 
@@ -456,26 +466,27 @@ export const particleConfig: ParticleConfig = {
 
 // 看板娘配置
 export const pioConfig: import("./types/config").PioConfig = {
-	enable: false, // 启用看板娘
-	models: ["/pio/models/pio/model.json"], // 默认模型路径
-	position: "left", // 默认位置在右侧
-	width: 280, // 默认宽度
-	height: 250, // 默认高度
-	mode: "draggable", // 默认为可拖拽模式
-	hiddenOnMobile: true, // 默认在移动设备上隐藏
-	dialog: {
-		welcome: "Welcome!", // 欢迎词
-		touch: [
-			"What are you doing?",
-			"Stop touching me!",
-			"Don't bully me like that!",
-			"(｡í _ ì｡)",
-		], // 触摸提示
-		home: "Click here to go back to homepage!", // 首页提示
-		skin: ["Want to see my new outfit?", "The new outfit looks great~"], // 换装提示
-		close: "See you next time~", // 关闭提示
-		link: "https://nav.kungal.org", // 关于链接
-	},
+    enable: true, // 启用看板娘
+    models: ["/pio/models/pio/model.json"], // 默认模型路径
+    position: "left", // 默认位置在右侧
+    width: 280, // 默认宽度
+    height: 250, // 默认高度
+    mode: "draggable", // 默认为可拖拽模式
+    hiddenOnMobile: true, // 默认在移动设备上隐藏
+    dialog: {
+        welcome: "Welcome！", // 欢迎词
+        touch: [
+            "你在干什么？",
+            "不可以这样欺负我啦！",
+        ], // 触摸提示
+        home: "点击这里回到首页！", // 首页提示
+        skin: [
+            "想看看我的新衣服吗？",
+            "新衣服真漂亮~"
+        ], // 换装提示
+        close: "下次再见吧~", // 关闭提示
+        link: "", // 关于链接
+    },
 };
 
 
