@@ -3,7 +3,12 @@ title: "[沸班亚马制作组] 胆大党 第二季 - 01-12 [IQIYI WebRip 2160p 
 published: 2025-11-20T22:06:00.000+08:00
 updated: 2025-11-20T22:06:00.000+08:00
 description: 小桃与厄卡伦踏入神秘温泉小镇，极具威胁的敌人即将现身……
-tags: []
+tags:
+  - 4K
+  - 日本
+  - 完结
+  - 简中
+category: 动漫
 draft: false
 ---
 ![](https://tu.126330.xyz/file/1763647737812_903_X93ACAH3M3ZCH2S.webp)
