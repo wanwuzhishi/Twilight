@@ -56,7 +56,7 @@ export const siteConfig: SiteConfig = {
 		// 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
 		src: {
 			desktop: [
-				"https://wwzssvjitu.pages.dev/random?type=img",
+				"https://sjtu.126330.xyz/random?type=img",
 			], // 桌面壁纸图片
 			mobile: [
 				"/assets/mobile-banner/mobileBanner_1.webp",
