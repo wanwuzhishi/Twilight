@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { postConfig } from "@/config";
+import { commentConfig } from "@/config";
 import Twikoo from "./Twikoo.astro";
 
 interface Props {
@@ -13,11 +13,11 @@ const path = `/posts/${slug}`;
 const url = `${Astro.site?.href}${path}`;
 
 let commentService = "";
-if (postConfig.comment?.enable && postConfig.comment?.twikoo) {
+if (commentConfig?.enable && commentConfig?.twikoo) {
 	commentService = "twikoo";
 }
 ---
-{postConfig.comment?.enable && (
+{commentConfig?.enable && (
   <div class="card-base p-6 mb-4">
     {commentService === 'twikoo' && <Twikoo path={path} />}
     {commentService === '' && null}

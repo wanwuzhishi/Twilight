@@ -1,8 +1,9 @@
 enum I18nKey {
 	home = "home",
-	archive = "archive",
 	about = "about",
+	archive = "archive",
 	search = "search",
+	other = "other",
 
 	tags = "tags",
 	categories = "categories",
@@ -43,12 +44,54 @@ enum I18nKey {
 	author = "author",
 	publishedAt = "publishedAt",
 	license = "license",
+	friends = "friends",
+	anime = "anime",
+	diary = "diary",
+	gallery = "gallery",
+
+	// 番剧页面
+	animeTitle = "animeTitle",
+	animeSubtitle = "animeSubtitle",
+	animeList = "animeList",
+	animeTotal = "animeTotal",
+	animeWatching = "animeWatching",
+	animeCompleted = "animeCompleted",
+	animeAvgRating = "animeAvgRating",
+	animeStatusWatching = "animeStatusWatching",
+	animeStatusCompleted = "animeStatusCompleted",
+	animeStatusPlanned = "animeStatusPlanned",
+	animeYear = "animeYear",
+	animeStudio = "animeStudio",
+	animeEmpty = "animeEmpty",
+	animeEmptyBangumi = "animeEmptyBangumi",
+
+	// 短文页面
+	diarySubtitle = "diarySubtitle",
+	diaryCount = "diaryCount",
+	diaryImage = "diaryImage",
+	diaryReply = "diaryReply",
+	diaryTips = "diaryTips",
+	diaryMinutesAgo = "diaryMinutesAgo",
+	diaryHoursAgo = "diaryHoursAgo",
+	diaryDaysAgo = "diaryDaysAgo",
 
 	// 404页面
 	notFound = "notFound",
 	notFoundTitle = "notFoundTitle",
 	notFoundDescription = "notFoundDescription",
 	backToHome = "backToHome",
+
+	// 音乐播放器
+	playlist = "playlist",
+
+	// 相册页面
+	albums = "albums",
+	albumsSubtitle = "albumsSubtitle",
+	albumsEmpty = "albumsEmpty",
+	albumsEmptyDesc = "albumsEmptyDesc",
+	albumsBackToList = "albumsBackToList",
+	albumsPhotoCount = "albumsPhotoCount",
+	albumsPhotosCount = "albumsPhotosCount",
 
 	// 项目展示页面
 	projects = "projects",
@@ -105,73 +148,6 @@ enum I18nKey {
 	skillsByLevel = "skillsByLevel",
 	skillsByCategory = "skillsByCategory",
 
-	// 时间线页面
-	timeline = "timeline",
-	timelineSubtitle = "timelineSubtitle",
-	timelineEducation = "timelineEducation",
-	timelineWork = "timelineWork",
-	timelineProject = "timelineProject",
-	timelineAchievement = "timelineAchievement",
-	timelinePresent = "timelinePresent",
-	timelineLocation = "timelineLocation",
-	timelineDescription = "timelineDescription",
-	timelineMonths = "timelineMonths",
-	timelineYears = "timelineYears",
-	timelineTotal = "timelineTotal",
-	timelineProjects = "timelineProjects",
-	timelineExperience = "timelineExperience",
-	timelineCurrent = "timelineCurrent",
-	timelineHistory = "timelineHistory",
-	timelineAchievements = "timelineAchievements",
-	timelineStatistics = "timelineStatistics",
-	timelineByType = "timelineByType",
-	timelineWorkExperience = "timelineWorkExperience",
-	timelineTotalExperience = "timelineTotalExperience",
-	timelineWorkPositions = "timelineWorkPositions",
-	timelineCurrentRole = "timelineCurrentRole",
-	timelineEmployed = "timelineEmployed",
-	timelineAvailable = "timelineAvailable",
-
-	// 短文页面
-	diary = "diary",
-	diarySubtitle = "diarySubtitle",
-	diaryCount = "diaryCount",
-	diaryImage = "diaryImage",
-	diaryReply = "diaryReply",
-	diaryTips = "diaryTips",
-	diaryMinutesAgo = "diaryMinutesAgo",
-	diaryHoursAgo = "diaryHoursAgo",
-	diaryDaysAgo = "diaryDaysAgo",
-
-	// 相册页面
-	albums = "albums",
-	albumsSubtitle = "albumsSubtitle",
-	albumsEmpty = "albumsEmpty",
-	albumsEmptyDesc = "albumsEmptyDesc",
-	albumsBackToList = "albumsBackToList",
-	albumsPhotoCount = "albumsPhotoCount",
-	albumsPhotosCount = "albumsPhotosCount",
-
-	// 番剧页面
-	anime = "anime",
-	animeTitle = "animeTitle",
-	animeSubtitle = "animeSubtitle",
-	animeList = "animeList",
-	animeTotal = "animeTotal",
-	animeWatching = "animeWatching",
-	animeCompleted = "animeCompleted",
-	animeAvgRating = "animeAvgRating",
-	animeStatusWatching = "animeStatusWatching",
-	animeStatusCompleted = "animeStatusCompleted",
-	animeStatusPlanned = "animeStatusPlanned",
-	animeYear = "animeYear",
-	animeStudio = "animeStudio",
-	animeEmpty = "animeEmpty",
-	animeEmptyBangumi = "animeEmptyBangumi",
-
-	// 友链页面
-	friends = "friends",
-
 	// RSS页面
 	rss = "rss",
 	rssDescription = "rssDescription",
@@ -208,6 +184,33 @@ enum I18nKey {
 	atomCopied = "atomCopied",
 	atomCopyFailed = "atomCopyFailed",
 
+	// 时间线页面
+	timeline = "timeline",
+	timelineSubtitle = "timelineSubtitle",
+	timelineEducation = "timelineEducation",
+	timelineWork = "timelineWork",
+	timelineProject = "timelineProject",
+	timelineAchievement = "timelineAchievement",
+	timelinePresent = "timelinePresent",
+	timelineLocation = "timelineLocation",
+	timelineDescription = "timelineDescription",
+	timelineMonths = "timelineMonths",
+	timelineYears = "timelineYears",
+	timelineTotal = "timelineTotal",
+	timelineProjects = "timelineProjects",
+	timelineExperience = "timelineExperience",
+	timelineCurrent = "timelineCurrent",
+	timelineHistory = "timelineHistory",
+	timelineAchievements = "timelineAchievements",
+	timelineStatistics = "timelineStatistics",
+	timelineByType = "timelineByType",
+	timelineWorkExperience = "timelineWorkExperience",
+	timelineTotalExperience = "timelineTotalExperience",
+	timelineWorkPositions = "timelineWorkPositions",
+	timelineCurrentRole = "timelineCurrentRole",
+	timelineEmployed = "timelineEmployed",
+	timelineAvailable = "timelineAvailable",
+
 	// 密码保护
 	passwordProtected = "passwordProtected",
 	passwordProtectedTitle = "passwordProtectedTitle",
@@ -236,9 +239,6 @@ enum I18nKey {
 	hour = "hour",
 	minute = "minute",
 	second = "second",
-
-	// 音乐播放器
-	playlist = "playlist",
 }
 
 export default I18nKey;

@@ -10,8 +10,8 @@ export interface Project {
 	category: "library" | "ai" | "software" | "website" | "game";
 	techStack: string[];
 	status: "completed" | "in-progress" | "planned";
-	demoUrl?: string;
-	sourceUrl?: string;
+	liveDemo?: string;
+	sourceCode?: string;
 	startDate: string;
 	endDate?: string;
 	featured?: boolean;
@@ -20,14 +20,8 @@ export interface Project {
 
 export const projectsData: Project[] = Object.entries(projectModules).map(([path, mod]: [string, any]) => {
   const id = path.split('/').pop()?.replace('.json', '') || '';
-  const data = mod.default as any;
-  const project: Project = {
-    id,
-    ...data,
-    demoUrl: data.demoUrl ?? data.liveDemo,
-    sourceUrl: data.sourceUrl ?? data.sourceCode,
-  };
-  return project;
+  const data = mod.default;
+  return { id, ...data } as Project;
 });
 
 // Get project statistics
