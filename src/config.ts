@@ -1,30 +1,31 @@
 import type {
-	AnnouncementConfig,
-	CommentConfig,
-	ExpressiveCodeConfig,
-	FooterConfig,
-	FullscreenWallpaperConfig,
-	LicenseConfig,
-	MusicPlayerConfig,
-	NavBarConfig,
-	ProfileConfig,
-	ParticleConfig,
-	SidebarLayoutConfig,
-	SiteConfig,
+    SiteConfig,
+    NavBarConfig,
+    SidebarLayoutConfig,
+    ProfileConfig,
+    AnnouncementConfig,
+    PostConfig,
+    FooterConfig,
+    ParticleConfig,
+    MusicPlayerConfig,
 } from "./types/config";
 import { LinkPreset } from "./types/config";
 import { getTranslateLanguageFromConfig, detectBrowserLanguage } from "./utils/language-utils";
 
+/**
+ * 
+ */
 
 // 自动检测浏览器语言（服务端渲染时默认为 'en'）
 const SITE_LANG = detectBrowserLanguage("zh");
 // 如果需要强制使用特定语言，可以取消注释下面一行并设置语言代码
-// const SITE_LANG = "zh"; // 强制使用的语言代码，'zh', 'en', 'ja' 等
+//const SITE_LANG = "zh"; // 强制使用的语言代码，'zh', 'en', 'ja' 等
 
 // 设置网站时区
 const SITE_TIMEZONE = 8; // from -12 to 12 default in UTC+8
 
 
+// 站点配置
 export const siteConfig: SiteConfig = {
 	siteURL: "https://fx.126330.xyz/", // 请替换为你的站点 URL 并以斜杠结尾
 	title: "万物之时资源站",
@@ -153,15 +154,11 @@ export const siteConfig: SiteConfig = {
 	},
 };
 
+/**
+ * 
+ */
 
-// fullscreenWallpaperConfig 已废弃，现在使用 siteConfig.wallpaper
-// 为了向后兼容，保留导出但使用新配置
-export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
-	...siteConfig.wallpaper,
-	enable: siteConfig.wallpaper.mode === "fullscreen", // 兼容旧的 enable 属性
-};
-
-
+// 导航栏配置
 export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
@@ -304,163 +301,296 @@ export const footerConfig: FooterConfig = {
 
 // 侧边栏布局配置
 export const sidebarLayoutConfig: SidebarLayoutConfig = {
-	// 是否启用侧边栏功能
-	enable: true,
-
-	// 侧边栏位置：左侧或右侧
-	position: "left",
-
-	// 侧边栏组件配置列表
-	components: [
-		{
-			// 组件类型：用户资料组件
-			type: "profile",
-			// 是否启用该组件
-			enable: true,
-			// 组件显示顺序（数字越小越靠前）
-			order: 1,
-			// 组件位置："top" 表示固定在顶部
-			position: "top",
-			// CSS 类名，用于应用样式和动画
-			class: "onload-animation",
-			// 动画延迟时间（毫秒），用于错开动画效果
-			animationDelay: 0,
-		},
-		{
-			// 组件类型：公告组件
-			type: "announcement",
-			// 是否启用该组件（现在通过统一配置控制）
-			enable: true,
-			// 组件显示顺序
-			order: 2,
-			// 组件位置："top" 表示固定在顶部
-			position: "top",
-			// CSS 类名
-			class: "onload-animation",
-			// 动画延迟时间
-			animationDelay: 50,
-		},
-		{
-			// 组件类型：分类组件
-			type: "categories",
-			// 是否启用该组件
-			enable: true,
-			// 组件显示顺序
-			order: 3,
-			// 组件位置："sticky" 表示粘性定位，可滚动
-			position: "sticky",
-			// CSS 类名
-			class: "onload-animation",
-			// 动画延迟时间
-			animationDelay: 150,
-			// 响应式配置
-			responsive: {
-				// 折叠阈值：当分类数量超过5个时自动折叠
-				collapseThreshold: 5,
-			},
-		},
-		{
-			// 组件类型：系列组件
-			type: "series",
-			// 是否启用该组件
-			enable: true,
-			// 组件显示顺序
-			order: 4,
-			// 组件位置："sticky" 表示粘性定位
-			position: "sticky",
-			// CSS 类名
-			class: "onload-animation",
-			// 动画延迟时间
-			animationDelay: 200,
-			// 响应式配置
-			responsive: {
-				// 折叠阈值：当系列数量超过10个时自动折叠
-				collapseThreshold: 10,
-			},
-		},
-		{
-			// 组件类型：标签组件
-			type: "tags",
-			// 是否启用该组件
-			enable: true,
-			// 组件显示顺序
-			order: 5,
-			// 组件位置："sticky" 表示粘性定位
-			position: "sticky",
-			// CSS 类名
-			class: "onload-animation",
-			// 动画延迟时间
-			animationDelay: 250,
-			// 响应式配置
-			responsive: {
-				// 折叠阈值：当标签数量超过20个时自动折叠
-				collapseThreshold: 20,
-			},
-		},
-	],
-
-
-	// 默认动画配置
-	defaultAnimation: {
-		// 是否启用默认动画
-		enable: true,
-		// 基础延迟时间（毫秒）
-		baseDelay: 0,
-		// 递增延迟时间（毫秒），每个组件依次增加的延迟
-		increment: 50,
-	},
-
-
-	// 响应式布局配置
-	responsive: {
-		// 断点配置（像素值）
-		breakpoints: {
-			// 移动端断点：屏幕宽度小于768px
-			mobile: 768,
-			// 平板端断点：屏幕宽度小于1024px
-			tablet: 1024,
-			// 桌面端断点：屏幕宽度小于1280px
-			desktop: 1280,
-		},
-		// 不同设备的布局模式
-		//hidden:不显示侧边栏(桌面端)   drawer:抽屉模式(移动端不显示)   sidebar:显示侧边栏
-		layout: {
-			// 移动端：抽屉模式
-			mobile: "sidebar",
-			// 平板端：显示侧边栏
-			tablet: "sidebar",
-			// 桌面端：显示侧边栏
-			desktop: "sidebar",
-		},
-	},
+    // 启用侧边栏功能
+    enable: true,
+    // 侧边栏位置（左侧或右侧）
+    position: "left",
+    // 侧边栏组件配置列表
+    components: [
+        {
+            // 组件类型
+            type: "profile", // 用户资料组件
+            // 是否启用该组件
+            enable: true,
+            // 组件显示顺序 (数字越小越靠前)
+            order: 1,
+            // 组件位置
+            position: "top", // 固定在顶部
+            // CSS 类名，用于应用样式和动画
+            class: "onload-animation",
+            // 动画延迟时间 (毫秒) ，用于错开动画效果
+            animationDelay: 0,
+        },
+        {
+            // 组件类型
+            type: "announcement", // 公告组件
+            // 是否启用该组件 (现在通过统一配置控制)
+            enable: true,
+            // 组件显示顺序
+            order: 2,
+            // 组件位置
+            position: "top", // 固定在顶部
+            // CSS 类名
+            class: "onload-animation",
+            // 动画延迟时间
+            animationDelay: 50,
+        },
+        {
+            // 组件类型
+            type: "categories", // 分类组件
+            // 是否启用该组件
+            enable: true,
+            // 组件显示顺序
+            order: 3,
+            // 组件位置
+            position: "sticky", // 粘性定位，可滚动
+            // CSS 类名
+            class: "onload-animation",
+            // 动画延迟时间
+            animationDelay: 150,
+            // 响应式配置
+            responsive: {
+                // 折叠阈值
+                collapseThreshold: 5, // 当分类数量超过5个时自动折叠
+            },
+        },
+        {
+            // 组件类型
+            type: "series", // 系列组件
+            // 是否启用该组件
+            enable: true,
+            // 组件显示顺序
+            order: 4,
+            // 组件位置
+            position: "sticky", // 粘性定位
+            // CSS 类名
+            class: "onload-animation",
+            // 动画延迟时间
+            animationDelay: 200,
+            // 响应式配置
+            responsive: {
+                // 折叠阈值
+                collapseThreshold: 10, // 当系列数量超过10个时自动折叠
+            },
+        },
+        {
+            // 组件类型
+            type: "tags", // 标签组件
+            // 是否启用该组件
+            enable: true,
+            // 组件显示顺序
+            order: 5,
+            // 组件位置
+            position: "sticky", // 粘性定位
+            // CSS 类名
+            class: "onload-animation",
+            // 动画延迟时间
+            animationDelay: 250,
+            // 响应式配置
+            responsive: {
+                // 折叠阈值
+                collapseThreshold: 20, // 当标签数量超过20个时自动折叠
+            },
+        },
+    ],
+    // 默认动画配置
+    defaultAnimation: {
+        // 是否启用默认动画
+        enable: true,
+        // 基础延迟时间 (毫秒)
+        baseDelay: 0,
+        // 每个组件递增的延迟时间 (毫秒)
+        increment: 50,
+    },
+    // 响应式布局配置
+    responsive: {
+        // 断点配置
+        breakpoints: {
+            // 移动端断点 (像素值)
+            mobile: 768, // 屏幕宽度小于768px
+            // 平板端断点 (像素值)
+            tablet: 1024, // 屏幕宽度小于1024px
+            // 桌面端断点 (像素值)
+            desktop: 1280, // 屏幕宽度小于1280px
+        },
+        // 不同设备的布局模式 ("hidden" 不显示侧边栏 | "drawer" 抽屉模式 | "sidebar" 显示侧边栏)
+        layout: {
+            // 移动端
+            mobile: "sidebar",
+            // 平板端
+            tablet: "sidebar",
+            // 桌面端
+            desktop: "sidebar",
+        },
+    },
 };
 
 
+// Umami统计配置
+export const umamiConfig = {
+    // 是否显示Umami统计
+    enabled: false,
+    // API密钥
+    apiKey: import.meta.env.UMAMI_API_KEY,
+    // UmamiCloudAPI地址
+    baseUrl: "https://api.umami.is",
+    // 要插入的Script
+    scripts: import.meta.env.UMAMI_TRACKING_CODE,
+} as const;
+
+
+// 资料配置
+export const profileConfig: ProfileConfig = {
+    // 头像配置 (相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录)
+    avatar: "assets/images/avatar.png",
+    // 信息配置
+    name: "Twilight",
+    // 简介配置
+    bio: "Hi",
+    // 链接配置
+    links: [
+        {
+            name: "GitHub",
+            icon: "fa6-brands:github",
+            url: "https://github.com/Spr-Aachen/Twilight",
+        },
+    ],
+};
+
+
+// 公告配置
+export const announcementConfig: AnnouncementConfig = {
+    // 公告标题
+    title: "Announcement",
+    // 公告内容
+    content: "Welcome to my blog!",
+    // 允许用户关闭公告
+    closable: true,
+    // 链接配置
+    link: {
+        // 启用链接
+        enable: true,
+        // 链接文本
+        text: "Learn More",
+        // 链接 URL
+        url: "/about/",
+        // 是否外部链接
+        external: false, // 内部链接
+    },
+};
+
+/**
+ * 
+ */
+
+// 文章配置
+export const postConfig: PostConfig = {
+    // 显示“上次编辑”卡片
+    showLastModified: true,
+    // 在文章内容中显示封面
+    showCoverInContent: false,
+    // 代码高亮配置
+    expressiveCode: {
+        // 主题
+        theme: "github-dark", // 深色背景
+    },
+    // 目录配置
+    toc: {
+        // 启用目录功能
+        enable: true,
+        // 目录深度 (1-6，1 表示只显示 h1 标题，2 表示显示 h1 和 h2 标题，依此类推)
+        depth: 3,
+    },
+    // 许可证配置
+    license: {
+        // 启用许可证
+        enable: true,
+        // 许可证名称
+        name: "CC BY-NC-SA 4.0",
+        // 许可证链接
+        url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    },
+    // 评论配置
+    comment: {
+        // 启用评论功能
+        enable: false,
+        // Twikoo 评论系统配置
+        twikoo: {
+            // 环境 ID
+            envId: "https://twikoo.vercel.app",
+            // 语言
+            lang: "en",
+        },
+    },
+};
+
+/**
+ * 
+ */
+
+// 页脚配置
+export const footerConfig: FooterConfig = {
+    // 启用 Footer HTML 注入功能
+    enable: false,
+};
+// 直接编辑 FooterConfig.html 文件来添加备案号等自定义内容
+
+/**
+ * 
+ */
+
+// 粒子特效配置
 export const particleConfig: ParticleConfig = {
-	enable: true, // 是否启动粒子特效
-	particleNum: 12, // 粒子数量
-	limitTimes: -1, // 粒子越界限制次数，-1为无限循环
-	size: {
-		min: 0.3, // 粒子最小尺寸倍数
-		max: 0.9, // 粒子最大尺寸倍数
-	},
-	opacity: {
-		min: 0.3, // 粒子最小不透明度
-		max: 0.9, // 粒子最大不透明度
-	},
-	speed: {
-		horizontal: {
-			min: -0.9, // 水平移动速度最小值
-			max: 0.9, // 水平移动速度最大值
-		},
-		vertical: {
-			min: 0.15, // 垂直移动速度最小值
-			max: 0.3, // 垂直移动速度最大值
-		},
-		rotation: 0.12, // 旋转速度
-		fadeSpeed: 0.12, // 消失速度，不应大于最小不透明度
-	},
-	zIndex: 100, // 层级，确保粒子在合适的层级显示
+    // 启用粒子特效
+    enable: true,
+    // 粒子数量
+    particleNum: 12,
+    // 粒子越界限制次数，-1为无限循环
+    limitTimes: -1,
+    // 粒子尺寸配置
+    size: {
+        // 粒子最小尺寸倍数
+        min: 0.3,
+        // 粒子最大尺寸倍数
+        max: 0.9,
+    },
+    // 粒子透明度配置
+    opacity: {
+        // 粒子最小不透明度
+        min: 0.3,
+        // 粒子最大不透明度
+        max: 0.9,
+    },
+    // 粒子移动速度配置
+    speed: {
+        // 水平移动速度
+        horizontal: {
+            // 最小值
+            min: -0.9,
+            // 最大值
+            max: 0.9,
+        },
+        // 垂直移动速度
+        vertical: {
+            // 最小值
+            min: 0.15,
+            // 最大值
+            max: 0.3,
+        },
+        // 旋转速度
+        rotation: 0.12,
+        // 消失速度
+        fadeSpeed: 0.12, // 不应大于最小不透明度
+    },
+    // 粒子层级
+    zIndex: 100, // 确保粒子在合适的层级显示
+};
+
+
+// 音乐播放器配置
+export const musicPlayerConfig: MusicPlayerConfig = {
+    // 启用音乐播放器功能
+    enable: true,
 };
 
 
@@ -489,6 +619,9 @@ export const pioConfig: import("./types/config").PioConfig = {
     },
 };
 
+/**
+ * 
+ */
 
 // 导出所有配置的统一接口
 export const widgetConfigs = {
